@@ -1,4 +1,9 @@
-
+/*
+This is a simple library js for consume Apis.
+It isn't finished becuase the default methods are diferent for each proyect
+and I hope a feedback
+Check the sample.js, is simple.
+*/
 
 function woGet(url, params, { woEnd, wo200, wo400, wo404, wo500 }) {
     var _url = woUrlBuild(url, params);
@@ -88,4 +93,5 @@ function wo500Default() {
 }
 
 function woEndDefault() {
+    alert("End Default");
 }
