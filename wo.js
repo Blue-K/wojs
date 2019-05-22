@@ -29,30 +29,30 @@ function woPost(url, params, jsonData, { woEnd, wo200, wo400, wo404, wo500 }) {
 }
 
 function woStateChange(req,{ woEnd, wo200, wo400, wo404, wo500 }) {
-    if (req.readyState == XMLHttpRequest.DONE) {
+    if (req.readyState === XMLHttpRequest.DONE) {
 
         var _jsonResponse = {};
 
-        if (req.response != "") {
+        if (req.response !== "") {
             _jsonResponse = JSON.parse(req.response);
         }
 
         switch (req.status) {
             case 200:
-                wo200 == undefined ? wo200Default() : wo200(_jsonResponse);
+                wo200 === undefined ? typeof wo200Default === "undefined" ? console.log("Please if you need created wo" + req.status + "Default method"): wo200Default(_jsonResponse): wo200(_jsonResponse);
                 break;
             case 400:
-                wo400 == undefined ? wo400Default() : wo400(_jsonResponse);
+                wo400 === undefined ? typeof wo400Default === "undefined" ? console.log("Please if you need created wo" + req.status + "Default method") : wo400Default(_jsonResponse) : wo400(_jsonResponse);
                 break;
             case 404:
-                wo404 == undefined ? wo404Default() : wo404(_jsonResponse);
+                wo404 === undefined ? typeof wo404Default === "undefined" ? console.log("Please if you need created wo" + req.status + "Default method") : wo404Default(_jsonResponse) : wo404(_jsonResponse);
                 break;
             case 500:
-                wo500 == undefined ? wo500Default() : wo500(_jsonResponse);
+                wo500 === undefined ? typeof wo500Default === "undefined" ? console.log("Please if you need created wo" + req.status + "Default method") : wo500Default(_jsonResponse) : wo500(_jsonResponse);
                 break;
         }
 
-        woEnd == undefined ? woEndDefault() : woEnd(_jsonResponse);
+        woEnd === undefined ? typeof woEndDefault === "undefined" ? console.log("Please if you need created woEndDefault method") : woEndDefault(_jsonResponse) : woEnd(_jsonResponse);
 
     }
 }
@@ -61,8 +61,8 @@ function woUrlBuild(url, params) {
 
     var _return = "";
 
-    if (params != undefined) {
-        if (params != null) {
+    if (params !== undefined) {
+        if (params !== null) {
             params.forEach(element => {
                 _return = _return + element.name + "=" + element.value + "&";
             });
@@ -76,22 +76,22 @@ function woUrlBuild(url, params) {
     return _return;
 }
 
-function wo200Default() {
-    alert("200 Default");
-}
+//function wo200Def() {
+//    console.log("Please configure 200 Default");
+//}
 
-function wo400Default() {
-    alert("400 Default");
-}
+//function wo400Def() {
+//    console.log("Please configure 400 Default");
+//}
 
-function wo404Default() {
-    alert("404 Default");
-}
+//function wo404Def() {
+//    console.log("Please configure 404 Default");
+//}
 
-function wo500Default() {
-    alert("500 Default");
-}
+//function wo500Def() {
+//    console.log("Please configure 500 Default");
+//}
 
-function woEndDefault() {
-    alert("End Default");
-}
+//function woEndDef() {
+//    console.log("Please configure End Default");
+//}
