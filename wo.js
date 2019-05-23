@@ -1,6 +1,6 @@
 /*
 This is a simple library js for consume Apis.
-It isn't finished becuase the default methods are diferent for each proyect
+It isn't finished because the default methods are different for each proyect
 and I hope a feedback
 Check the sample.js, is simple.
 */
@@ -95,3 +95,4 @@ function woUrlBuild(url, params) {
 //function woEndDef() {
 //    console.log("Please configure End Default");
 //}
+
