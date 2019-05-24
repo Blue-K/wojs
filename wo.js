@@ -36,7 +36,6 @@ function woStateChange(req,{ woEnd, wo200, wo400, wo404, wo500 }) {
         if (req.response !== "") {
             _jsonResponse = JSON.parse(req.response);
         }
-
         switch (req.status) {
             case 200:
                 wo200 === undefined ? typeof wo200Default === "undefined" ? console.log("Please if you need created wo" + req.status + "Default method"): wo200Default(_jsonResponse): wo200(_jsonResponse);
